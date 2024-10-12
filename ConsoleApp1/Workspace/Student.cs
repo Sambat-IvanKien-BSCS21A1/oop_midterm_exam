@@ -5,16 +5,22 @@
         public string? StudentName { get; }
         public List<Course> Courses { get; set; }
 
+
         public Student(string? name )
         {
+            Courses = new List<Course>();
             StudentName = name;
         }
 
         public void Enroll(Course course)
         {
-            Courses = new List<Course>();
-            Courses.Add(course);
+            if (course.CourseName != "OOP")
+            {
+                Courses.Add(course);
+            }
+
         }
+
 
         public void ShowCourses()
         {
@@ -30,9 +36,10 @@
     // Association (Student - Course)
     public class Course
     {
+
         public Course(string? name)
         {
-            
+            CourseName = name;
         }
         public string CourseName { get; }
     }
